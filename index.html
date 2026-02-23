@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Craftit AI Strategy | The AI Creative Agent</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <title>Craftit AI | Strategic Plan 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         :root {
-            --bg-primary: #ffffff;
-            --bg-secondary: #f8fafc;
-            --bg-tertiary: #f1f5f9;
-            --text-primary: #0f172a;
+            --bg: #ffffff;
+            --bg-alt: #f8fafc;
+            --bg-accent: #f1f5f9;
+            --text: #0f172a;
             --text-secondary: #475569;
             --text-muted: #94a3b8;
-            --accent: #6366f1;
-            --accent-light: rgba(99, 102, 241, 0.1);
+            --primary: #6366f1;
+            --primary-light: rgba(99, 102, 241, 0.1);
             --success: #10b981;
             --warning: #f59e0b;
             --danger: #ef4444;
@@ -24,812 +24,1164 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body {
-            font-family: 'Inter', -apple-system, sans-serif;
-            background: var(--bg-secondary);
-            color: var(--text-primary);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-alt);
+            color: var(--text);
             line-height: 1.7;
             font-size: 15px;
         }
+
+        /* Navigation */
         .nav {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            z-index: 1000;
+            z-index: 100;
             background: rgba(255,255,255,0.95);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
-            padding: 0 2rem;
         }
         .nav-inner {
-            max-width: 1100px;
+            max-width: 1000px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 60px;
+            padding: 0 2rem;
+            height: 56px;
         }
         .nav-logo {
             font-weight: 800;
-            color: var(--accent);
+            font-size: 1rem;
+            color: var(--primary);
         }
         .nav-links {
             display: flex;
-            gap: 0.25rem;
+            gap: 0.5rem;
             list-style: none;
-            overflow-x: auto;
         }
         .nav-links a {
             color: var(--text-secondary);
             text-decoration: none;
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             font-weight: 500;
-            padding: 0.4rem 0.6rem;
+            padding: 0.4rem 0.75rem;
             border-radius: 6px;
-            white-space: nowrap;
+            transition: all 0.2s;
         }
-        .nav-links a:hover { color: var(--accent); background: var(--accent-light); }
-        .progress-bar {
+        .nav-links a:hover {
+            color: var(--primary);
+            background: var(--primary-light);
+        }
+
+        /* Progress */
+        .progress {
             position: fixed;
-            top: 60px;
+            top: 56px;
             left: 0;
             height: 3px;
-            background: linear-gradient(90deg, var(--accent), #8b5cf6);
-            z-index: 999;
+            background: linear-gradient(90deg, var(--primary), #8b5cf6);
+            z-index: 99;
+            transition: width 0.1s;
         }
+
+        /* Container */
         .container {
             max-width: 900px;
             margin: 0 auto;
-            padding: 90px 1.5rem 3rem;
+            padding: 80px 2rem 4rem;
         }
-        .hero {
+
+        /* Cover */
+        .cover {
             text-align: center;
-            padding: 3rem 0;
+            padding: 4rem 0;
             margin-bottom: 2rem;
         }
-        .hero-badge {
-            display: inline-block;
-            background: var(--accent-light);
-            color: var(--accent);
-            padding: 0.4rem 1rem;
-            border-radius: 100px;
-            font-size: 0.8rem;
-            font-weight: 600;
+        .cover-logo {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
             margin-bottom: 1.5rem;
         }
-        .hero h1 {
-            font-size: 2.5rem;
+        .cover h1 {
+            font-size: 2.75rem;
             font-weight: 900;
-            line-height: 1.2;
+            line-height: 1.15;
             margin-bottom: 1rem;
         }
-        .hero h1 span { color: var(--accent); }
-        .hero-sub { color: var(--text-secondary); max-width: 600px; margin: 0 auto; }
+        .cover h1 span {
+            color: var(--primary);
+        }
+        .cover-sub {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+        .cover-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* Section */
         .section {
-            background: white;
+            background: var(--bg);
             border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 2rem;
+            border-radius: 16px;
+            padding: 2.5rem;
             margin-bottom: 1.5rem;
         }
         .section-header {
-            margin-bottom: 1.5rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid var(--border);
+            margin-bottom: 2rem;
         }
         .section-num {
             display: inline-block;
-            background: var(--accent);
+            background: var(--primary);
             color: white;
             font-size: 0.65rem;
             font-weight: 700;
-            padding: 0.2rem 0.6rem;
+            padding: 0.25rem 0.75rem;
             border-radius: 100px;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
         }
         .section-title {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             font-weight: 800;
-            margin-bottom: 0.3rem;
-        }
-        .section-sub { color: var(--text-secondary); font-size: 0.9rem; }
-        .insight-box {
-            background: linear-gradient(135deg, var(--accent-light), rgba(139, 92, 246, 0.08));
-            border: 2px solid rgba(99, 102, 241, 0.2);
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-            text-align: center;
-        }
-        .insight-label {
-            color: var(--accent);
-            font-size: 0.7rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
             margin-bottom: 0.5rem;
         }
-        .insight-text { font-size: 1.2rem; font-weight: 600; }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1rem 0;
-            font-size: 0.85rem;
-        }
-        th {
-            text-align: left;
-            padding: 0.75rem;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--text-muted);
-            background: var(--bg-tertiary);
-            border-bottom: 2px solid var(--border);
-        }
-        td {
-            padding: 0.75rem;
-            border-bottom: 1px solid var(--bg-tertiary);
-        }
-        tr:hover { background: var(--bg-secondary); }
-        .highlight-row {
-            background: var(--accent-light) !important;
-            border-left: 3px solid var(--accent);
-        }
-        .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-        .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
-        @media (max-width: 768px) {
-            .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
-        }
-        .card {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 1.25rem;
-        }
-        .card-title {
-            font-weight: 700;
-            margin-bottom: 0.75rem;
+        .section-sub {
+            color: var(--text-secondary);
             font-size: 0.95rem;
         }
+
+        /* Subsection */
         .subsection {
             margin: 2rem 0;
+        }
+        .subsection:first-of-type {
+            margin-top: 0;
         }
         .subsection-title {
             font-size: 1.1rem;
             font-weight: 700;
-            margin-bottom: 0.75rem;
+            margin-bottom: 1rem;
             padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--bg-tertiary);
+            border-bottom: 2px solid var(--bg-accent);
         }
-        .subsection-title span { color: var(--accent); }
-        .paradigm-box {
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
-            gap: 1rem;
-            align-items: center;
+
+        /* Highlight Box */
+        .highlight {
+            background: linear-gradient(135deg, var(--primary-light), rgba(139, 92, 246, 0.08));
+            border: 2px solid rgba(99, 102, 241, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
             margin: 1.5rem 0;
         }
-        .paradigm-old, .paradigm-new {
-            padding: 1.5rem;
-            border-radius: 10px;
-            text-align: center;
-        }
-        .paradigm-old {
-            background: rgba(239, 68, 68, 0.08);
-            border: 1px solid rgba(239, 68, 68, 0.2);
-        }
-        .paradigm-new {
-            background: rgba(16, 185, 129, 0.08);
-            border: 1px solid rgba(16, 185, 129, 0.2);
-        }
-        .paradigm-arrow {
-            font-size: 2rem;
-            color: var(--accent);
-        }
-        .paradigm-label {
+        .highlight-label {
             font-size: 0.7rem;
             font-weight: 700;
+            color: var(--primary);
             text-transform: uppercase;
+            letter-spacing: 0.1em;
             margin-bottom: 0.5rem;
         }
-        .paradigm-old .paradigm-label { color: var(--danger); }
-        .paradigm-new .paradigm-label { color: var(--success); }
-        .paradigm-text { font-weight: 600; font-size: 0.9rem; }
-        .arch-diagram {
-            background: var(--bg-tertiary);
-            border-radius: 10px;
+        .highlight-text {
+            font-size: 1.25rem;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+        .highlight.center {
+            text-align: center;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.875rem;
+        }
+        th {
+            text-align: left;
+            padding: 0.875rem 1rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            background: var(--bg-accent);
+            border-bottom: 2px solid var(--border);
+        }
+        td {
+            padding: 0.875rem 1rem;
+            border-bottom: 1px solid var(--bg-accent);
+            vertical-align: top;
+        }
+        tr:hover {
+            background: var(--bg-alt);
+        }
+        .row-highlight {
+            background: var(--primary-light) !important;
+        }
+
+        /* Grids */
+        .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+        .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+        @media (max-width: 768px) {
+            .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+        }
+
+        /* Cards */
+        .card {
+            background: var(--bg-alt);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+        .card-title {
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        /* Metrics */
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .metric {
+            text-align: center;
+            padding: 1.25rem;
+            background: var(--bg-alt);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+        .metric-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+        .metric-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+
+        /* Diagram */
+        .diagram {
+            background: var(--bg-accent);
+            border-radius: 12px;
             padding: 1.5rem;
             margin: 1.5rem 0;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
             font-size: 0.75rem;
+            line-height: 1.6;
             overflow-x: auto;
             white-space: pre;
-            line-height: 1.5;
         }
+
+        /* Force Bars */
         .force-bar {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 1rem;
+            padding: 0.75rem;
+            background: var(--bg-alt);
+            border-radius: 8px;
             margin-bottom: 0.75rem;
-            padding: 0.5rem;
-            background: var(--bg-secondary);
-            border-radius: 6px;
         }
-        .force-label { width: 160px; font-size: 0.8rem; font-weight: 500; }
-        .force-track { flex: 1; height: 10px; background: var(--bg-tertiary); border-radius: 5px; }
-        .force-fill { height: 100%; border-radius: 5px; }
+        .force-label {
+            width: 180px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        .force-track {
+            flex: 1;
+            height: 10px;
+            background: var(--bg-accent);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .force-fill {
+            height: 100%;
+            border-radius: 5px;
+        }
         .force-fill.high { background: var(--danger); }
         .force-fill.med { background: var(--warning); }
         .force-fill.low { background: var(--success); }
-        .force-score { width: 60px; text-align: right; font-weight: 700; font-size: 0.8rem; }
-        .comparison-table td:first-child { font-weight: 600; }
-        .yes { color: var(--success); font-weight: 700; }
-        .no { color: var(--danger); font-weight: 700; }
-        .moat-score {
-            text-align: center;
-            padding: 2rem;
-        }
-        .moat-value { font-size: 4rem; font-weight: 900; color: var(--accent); }
-        .moat-label { color: var(--text-muted); }
-        .scenario-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-        .scenario-card {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 1.25rem;
-            position: relative;
-        }
-        .scenario-card.best { border-left: 4px solid var(--success); }
-        .scenario-card.good { border-left: 4px solid #3b82f6; }
-        .scenario-card.mod { border-left: 4px solid var(--warning); }
-        .scenario-card.bad { border-left: 4px solid var(--danger); }
-        .scenario-prob {
-            position: absolute;
-            top: 0.75rem;
-            right: 0.75rem;
-            background: var(--bg-tertiary);
-            padding: 0.2rem 0.5rem;
-            border-radius: 100px;
-            font-size: 0.65rem;
+        .force-score {
+            width: 50px;
+            text-align: right;
             font-weight: 700;
-        }
-        .scenario-title { font-weight: 700; margin-bottom: 0.3rem; }
-        .scenario-desc { font-size: 0.8rem; color: var(--text-secondary); }
-        .quote-box {
-            background: var(--bg-tertiary);
-            border-left: 4px solid var(--accent);
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-            font-style: italic;
-            color: var(--text-secondary);
-        }
-        .quote-author { margin-top: 0.75rem; font-style: normal; font-weight: 600; color: var(--text-primary); }
-        footer {
-            text-align: center;
-            padding: 3rem 1.5rem;
-            color: var(--text-muted);
             font-size: 0.85rem;
         }
-        footer .logo { font-weight: 800; color: var(--accent); font-size: 1.1rem; margin-bottom: 0.5rem; }
-        .tag { display: inline-block; padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.7rem; font-weight: 600; }
-        .tag-success { background: rgba(16,185,129,0.1); color: var(--success); }
-        .tag-danger { background: rgba(239,68,68,0.1); color: var(--danger); }
-        .tag-warning { background: rgba(245,158,11,0.1); color: var(--warning); }
-        .tag-info { background: rgba(59,130,246,0.1); color: #3b82f6; }
-        .metric-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin: 1.5rem 0; }
-        .metric-card { text-align: center; padding: 1rem; background: var(--bg-secondary); border-radius: 8px; }
-        .metric-value { font-size: 1.5rem; font-weight: 800; color: var(--accent); }
-        .metric-label { font-size: 0.7rem; color: var(--text-muted); margin-top: 0.2rem; }
-        .text-sm { font-size: 0.85rem; }
+
+        /* Scenarios */
+        .scenario-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+        .scenario {
+            background: var(--bg-alt);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            position: relative;
+        }
+        .scenario.primary { border-left: 4px solid var(--success); }
+        .scenario.secondary { border-left: 4px solid #3b82f6; }
+        .scenario.tertiary { border-left: 4px solid var(--warning); }
+        .scenario.risk { border-left: 4px solid var(--danger); }
+        .scenario-prob {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--bg-accent);
+            padding: 0.25rem 0.6rem;
+            border-radius: 100px;
+            font-size: 0.7rem;
+            font-weight: 700;
+        }
+        .scenario-title {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        .scenario-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 6px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border);
+        }
+        .timeline-item {
+            position: relative;
+            padding-bottom: 1.5rem;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 4px;
+            width: 12px;
+            height: 12px;
+            background: var(--primary);
+            border-radius: 50%;
+            border: 2px solid white;
+        }
+        .timeline-phase {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.25rem;
+        }
+        .timeline-title {
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+        .timeline-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Tags */
+        .tag {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+        .tag-success { background: rgba(16, 185, 129, 0.1); color: var(--success); }
+        .tag-warning { background: rgba(245, 158, 11, 0.1); color: var(--warning); }
+        .tag-danger { background: rgba(239, 68, 68, 0.1); color: var(--danger); }
+        .tag-primary { background: var(--primary-light); color: var(--primary); }
+
+        /* Quote */
+        .quote {
+            background: var(--bg-accent);
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--text-muted);
+        }
+        footer .logo {
+            font-weight: 800;
+            color: var(--primary);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Utilities */
+        .text-center { text-align: center; }
+        .text-sm { font-size: 0.875rem; }
         .text-xs { font-size: 0.75rem; }
         .text-muted { color: var(--text-muted); }
         .text-success { color: var(--success); }
-        .text-danger { color: var(--danger); }
-        .text-accent { color: var(--accent); }
+        .text-primary { color: var(--primary); }
         .font-bold { font-weight: 700; }
         .mt-1 { margin-top: 0.5rem; }
         .mt-2 { margin-top: 1rem; }
         .mb-1 { margin-bottom: 0.5rem; }
         .mb-2 { margin-bottom: 1rem; }
+
+        /* Print */
+        @media print {
+            .nav, .progress { display: none; }
+            .container { padding-top: 0; }
+            .section { break-inside: avoid; box-shadow: none; }
+        }
     </style>
 </head>
 <body>
     <nav class="nav">
         <div class="nav-inner">
-            <div class="nav-logo">Craftit AI Strategy</div>
+            <div class="nav-logo">Craftit AI</div>
             <ul class="nav-links">
-                <li><a href="#paradigm">Paradigm Shift</a></li>
-                <li><a href="#landscape">Landscape</a></li>
-                <li><a href="#porter">Porter's 5</a></li>
-                <li><a href="#competitors">Competitors</a></li>
+                <li><a href="#vision">Vision</a></li>
                 <li><a href="#market">Market</a></li>
-                <li><a href="#moat">Moat</a></li>
-                <li><a href="#scenarios">Scenarios</a></li>
+                <li><a href="#competition">Competition</a></li>
                 <li><a href="#strategy">Strategy</a></li>
+                <li><a href="#moat">Moat</a></li>
+                <li><a href="#financials">Financials</a></li>
+                <li><a href="#roadmap">Roadmap</a></li>
             </ul>
         </div>
     </nav>
-    <div class="progress-bar" id="progressBar"></div>
+
+    <div class="progress" id="progress"></div>
 
     <div class="container">
-        <!-- Hero -->
-        <div class="hero">
-            <div class="hero-badge">🧠 Strategic Recalibration • February 2026</div>
-            <h1>Craftit AI is not a tool.<br><span>It's an AI Creative Agent.</span></h1>
-            <p class="hero-sub">Like Claude Code for developers, Craftit AI is your AI designer—understanding your brand, creating what you describe, and letting you perfect every detail.</p>
+        <!-- Cover -->
+        <div class="cover">
+            <div class="cover-logo">Strategic Plan 2026-2030</div>
+            <h1>The AI <span>Creative Agent</span></h1>
+            <p class="cover-sub">Craftit AI is your AI designer—understanding your brand, creating what you describe, and letting you perfect every detail.</p>
+            <div class="cover-meta">
+                <span>📍 Singapore</span>
+                <span>📅 February 2026</span>
+                <span>🔒 Confidential</span>
+            </div>
         </div>
 
-        <!-- Paradigm Shift -->
-        <div class="section" id="paradigm">
+        <!-- Section 1: Vision -->
+        <div class="section" id="vision">
             <div class="section-header">
-                <div class="section-num">The Paradigm Shift</div>
-                <h2 class="section-title">From Tools to Agent</h2>
-                <p class="section-sub">This changes everything about how we compete</p>
+                <div class="section-num">01</div>
+                <h2 class="section-title">Vision & Positioning</h2>
+                <p class="section-sub">What we're building and why it matters</p>
             </div>
 
-            <div class="paradigm-box">
-                <div class="paradigm-old">
-                    <div class="paradigm-label">❌ Old Positioning</div>
-                    <div class="paradigm-text">"Craftit has 5 features: Image Gen, Video Gen, Editor, Canvas, Timeline"</div>
-                    <p class="text-xs text-muted mt-1">Problem: Competing on features = eventually commoditized</p>
-                </div>
-                <div class="paradigm-arrow">→</div>
-                <div class="paradigm-new">
-                    <div class="paradigm-label">✓ New Positioning</div>
-                    <div class="paradigm-text">"Craftit AI is your AI Creative Designer that understands your brand and creates editable content"</div>
-                    <p class="text-xs text-muted mt-1">Advantage: Category creation = uncopyable</p>
-                </div>
-            </div>
-
-            <div class="insight-box">
-                <div class="insight-label">🎯 The Analogy</div>
-                <div class="insight-text">Claude Code = AI coding agent that uses tools to help developers build software<br><strong style="color: var(--accent);">Craftit AI = AI design agent that uses creative tools to help creators build content</strong></div>
+            <div class="highlight center">
+                <div class="highlight-label">Our Vision</div>
+                <div class="highlight-text">Craftit AI is not a creative tool.<br>It's your AI Creative Designer.</div>
             </div>
 
             <div class="subsection">
-                <h3 class="subsection-title">What Makes Craftit AI Agent Different</h3>
-                <table class="comparison-table">
-                    <thead><tr><th>Traditional AI Tools</th><th>Craftit AI Agent</th></tr></thead>
+                <h3 class="subsection-title">The Paradigm</h3>
+                <p class="mb-2">Just as Claude Code and Cursor transformed software development by providing AI coding agents, Craftit AI transforms content creation by providing an AI Creative Agent.</p>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Domain</th>
+                            <th>AI Agent</th>
+                            <th>What It Does</th>
+                        </tr>
+                    </thead>
                     <tbody>
-                        <tr><td>Generate fixed outputs</td><td class="yes">Generate <strong>editable</strong> outputs</td></tr>
-                        <tr><td>User operates the tool</td><td class="yes">AI operates the tools <strong>for you</strong></td></tr>
-                        <tr><td>No context awareness</td><td class="yes">Understands <strong>your brand, style, preferences</strong></td></tr>
-                        <tr><td>One-shot generation</td><td class="yes"><strong>Iterative collaboration</strong> with adjustments</td></tr>
-                        <tr><td>Tool struggle persists</td><td class="yes"><strong>Eliminates tool struggle</strong> entirely</td></tr>
-                        <tr><td>Generic outputs</td><td class="yes"><strong>Relevant, on-brand</strong> content</td></tr>
+                        <tr>
+                            <td>Software Development</td>
+                            <td>Claude Code, Cursor</td>
+                            <td>AI writes and edits code for developers</td>
+                        </tr>
+                        <tr class="row-highlight">
+                            <td><strong>Content Creation</strong></td>
+                            <td><strong>Craftit AI</strong></td>
+                            <td><strong>AI designs and creates content for everyone</strong></td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
 
             <div class="subsection">
+                <h3 class="subsection-title">What Makes Craftit AI Different</h3>
+                <div class="grid-2">
+                    <div class="card">
+                        <div class="card-title">🧠 AI That Understands You</div>
+                        <p class="text-sm text-muted">Learns your brand, style, and preferences. Creates relevant, on-brand content every time.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">✋ No Tool Struggle</div>
+                        <p class="text-sm text-muted">Describe what you want in plain language. AI operates the creative tools for you.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">✏️ Fully Editable Outputs</div>
+                        <p class="text-sm text-muted">Unlike fixed AI outputs, see everything on a canvas and timeline. Make minute adjustments.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">🤝 Creative Partnership</div>
+                        <p class="text-sm text-muted">Iterative collaboration. AI suggests, you refine. The best of both worlds.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="subsection">
                 <h3 class="subsection-title">The Architecture</h3>
-                <div class="arch-diagram">┌─────────────────────────────────────────────────────────────┐
+                <div class="diagram">┌─────────────────────────────────────────────────────────────┐
 │                    CRAFTIT AI AGENT                         │
-│         (Design Intelligence + Brand Understanding)         │
+│            Design Intelligence • Brand Memory               │
 │                                                             │
-│    "I understand what you need. Let me create it for you." │
+│     "I understand what you need. Let me create it."         │
 └─────────────────────────────────────────────────────────────┘
                             │
                             ▼
 ┌─────────────────────────────────────────────────────────────┐
 │               EDITABLE OUTPUT LAYER                         │
+│                                                             │
 │  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐   │
-│  │ Canvas   │  │ Timeline │  │ Editor   │  │ Layers   │   │
-│  │ See what │  │ See the  │  │ Adjust   │  │ Control  │   │
-│  │ AI built │  │ sequence │  │ details  │  │ elements │   │
+│  │  Canvas  │  │ Timeline │  │  Editor  │  │  Layers  │   │
 │  └──────────┘  └──────────┘  └──────────┘  └──────────┘   │
-│        "See what AI created → Make minute changes"          │
+│                                                             │
+│         See what AI created → Make adjustments              │
 └─────────────────────────────────────────────────────────────┘
                             │
                             ▼
 ┌─────────────────────────────────────────────────────────────┐
-│              AI GENERATION ENGINES (Commoditizing)          │
-│         Image Gen    │    Video Gen    │    Text Gen        │
+│              AI GENERATION ENGINES                          │
+│        Image Gen  •  Video Gen  •  Text Gen                 │
 └─────────────────────────────────────────────────────────────┘</div>
             </div>
 
-            <div class="quote-box">
+            <div class="quote">
                 "The best creative tool is one you don't have to learn.<br>The best AI is one that learns you."
-                <div class="quote-author">— Craftit AI Vision</div>
             </div>
         </div>
 
-        <!-- Recalibrated Landscape -->
-        <div class="section" id="landscape">
+        <!-- Section 2: Market -->
+        <div class="section" id="market">
             <div class="section-header">
-                <div class="section-num">Section 1</div>
-                <h2 class="section-title">Recalibrated Competitive Landscape</h2>
-                <p class="section-sub">We're not competing with tools. We created a new category.</p>
+                <div class="section-num">02</div>
+                <h2 class="section-title">Market Opportunity</h2>
+                <p class="section-sub">A massive, underserved market ready for disruption</p>
             </div>
 
-            <div class="insight-box">
-                <div class="insight-label">Key Insight</div>
-                <div class="insight-text">There is <strong>NO</strong> AI Creative Agent in the market today.<br>Craftit occupies a category of ONE.</div>
+            <div class="metrics">
+                <div class="metric">
+                    <div class="metric-value">$40B</div>
+                    <div class="metric-label">TAM by 2030</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">$13B</div>
+                    <div class="metric-label">Serviceable Market</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">40%</div>
+                    <div class="metric-label">Annual Growth</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">500M+</div>
+                    <div class="metric-label">Potential Users</div>
+                </div>
             </div>
 
             <div class="subsection">
-                <h3 class="subsection-title"><span>1.1</span> The AI Agent Landscape</h3>
+                <h3 class="subsection-title">Market Segments</h3>
                 <table>
-                    <thead><tr><th>Category</th><th>Players</th><th>What They Do</th><th>Editability</th></tr></thead>
+                    <thead>
+                        <tr>
+                            <th>Segment</th>
+                            <th>Size</th>
+                            <th>Opportunity</th>
+                            <th>Pain Point</th>
+                        </tr>
+                    </thead>
                     <tbody>
-                        <tr><td>AI Coding Agents</td><td>Claude Code, Cursor, Copilot</td><td>AI writes/edits code</td><td class="yes">✓ Full (IDE)</td></tr>
-                        <tr><td>AI Writing Agents</td><td>Jasper, Copy.ai, Claude</td><td>AI writes text</td><td class="yes">✓ Full (text)</td></tr>
-                        <tr class="highlight-row"><td><strong>AI Design Agents</strong></td><td><strong>NONE → CRAFTIT</strong></td><td>AI designs content</td><td class="yes">✓ Full (canvas)</td></tr>
-                        <tr><td>AI Image Tools</td><td>Midjourney, DALL-E, Flux</td><td>Generate images</td><td class="no">✗ Fixed</td></tr>
-                        <tr><td>AI Video Tools</td><td>Runway, Sora, Pika</td><td>Generate videos</td><td class="no">✗ Fixed</td></tr>
-                        <tr><td>Design Tools</td><td>Canva, Figma, Adobe</td><td>User operates tools</td><td>N/A (manual)</td></tr>
+                        <tr>
+                            <td><strong>Content Creators</strong></td>
+                            <td>200M+</td>
+                            <td>$3B</td>
+                            <td>Juggling multiple tools, time-consuming workflow</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Small Businesses</strong></td>
+                            <td>400M</td>
+                            <td>$5B</td>
+                            <td>Can't afford designers, struggle with tools</td>
+                        </tr>
+                        <tr>
+                            <td><strong>E-commerce Sellers</strong></td>
+                            <td>100M+</td>
+                            <td>$2B</td>
+                            <td>Need product images + videos fast</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Agencies</strong></td>
+                            <td>500K</td>
+                            <td>$2B</td>
+                            <td>Team productivity, scaling output</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Non-Designers</strong></td>
+                            <td>500M+</td>
+                            <td>$5B</td>
+                            <td>Tool-phobic, need design but can't create</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
 
+            <div class="highlight center">
+                <div class="highlight-label">Key Insight</div>
+                <div class="highlight-text">500M+ people need design but can't use existing tools.<br>Craftit AI makes creation accessible to everyone.</div>
+            </div>
+
             <div class="subsection">
-                <h3 class="subsection-title"><span>1.2</span> Competitive Positioning Map</h3>
-                <div class="arch-diagram">                    HIGH EDITABILITY
+                <h3 class="subsection-title">Why Now</h3>
+                <div class="grid-3">
+                    <div class="card">
+                        <div class="card-title">🤖 AI Maturity</div>
+                        <p class="text-sm text-muted">Image and video generation quality now sufficient for professional use.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">📱 Creator Economy</div>
+                        <p class="text-sm text-muted">$250B creator economy driving demand for faster content production.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">🌏 SEA Growth</div>
+                        <p class="text-sm text-muted">20-30% annual digital economy growth in Southeast Asia.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 3: Competition -->
+        <div class="section" id="competition">
+            <div class="section-header">
+                <div class="section-num">03</div>
+                <h2 class="section-title">Competitive Landscape</h2>
+                <p class="section-sub">Category creation, not feature competition</p>
+            </div>
+
+            <div class="subsection">
+                <h3 class="subsection-title">Competitive Positioning</h3>
+                <div class="diagram">                    HIGH EDITABILITY
                           │
+       Traditional Tools  │          ★ CRAFTIT AI
+       (Figma, Canva)     │          AI Agent + Editable
                           │
-       Pure Tools         │         ★ CRAFTIT AI AGENT
-       (Figma, Premiere)  │         (AI Agent + Editable)
-                          │
-                          │              ◄ BLUE OCEAN
+                          │              ◀ BLUE OCEAN
     ──────────────────────┼──────────────────────────────
                           │
-       (Empty quadrant)   │         AI Generators
-                          │         (Midjourney, Runway)
-                          │         Fixed outputs only
+       (Gap)              │          AI Generators
+                          │          (Midjourney, Runway)
+                          │          Fixed outputs
                           │
                     LOW EDITABILITY
 
-    NO AI ◄───────────────┼───────────────► FULL AI
-                          │
+    NO AI ◀───────────────┼───────────────▶ FULL AI
 
-★ = Craftit is the ONLY player with both AI Agent + Full Editability</div>
+★ CRAFTIT AI = Only player with AI Agent + Full Editability</div>
             </div>
 
             <div class="subsection">
-                <h3 class="subsection-title"><span>1.3</span> Recalibrated Threat Assessment</h3>
+                <h3 class="subsection-title">Competitive Analysis</h3>
                 <table>
-                    <thead><tr><th>Competitor</th><th>Old Threat</th><th>New Threat</th><th>Reasoning</th></tr></thead>
+                    <thead>
+                        <tr>
+                            <th>Competitor</th>
+                            <th>AI Agent</th>
+                            <th>Editability</th>
+                            <th>Brand Learning</th>
+                            <th>Threat Level</th>
+                        </tr>
+                    </thead>
                     <tbody>
-                        <tr><td><strong>Canva</strong></td><td><span class="tag tag-danger">HIGH</span></td><td><span class="tag tag-warning">MEDIUM</span></td><td>Has tools, weak on AI agent; organizational inertia</td></tr>
-                        <tr><td><strong>Adobe</strong></td><td><span class="tag tag-danger">HIGH</span></td><td><span class="tag tag-warning">MEDIUM</span></td><td>Has tools + some AI, but not agent-first DNA</td></tr>
-                        <tr><td><strong>Midjourney</strong></td><td><span class="tag tag-success">LOW</span></td><td><span class="tag tag-success">LOW</span></td><td>No editability, no tools, Discord-only</td></tr>
-                        <tr><td><strong>Runway</strong></td><td><span class="tag tag-warning">MEDIUM</span></td><td><span class="tag tag-success">LOW</span></td><td>No editability, pro-focused</td></tr>
-                        <tr><td><strong>OpenAI (Sora)</strong></td><td><span class="tag tag-warning">MEDIUM</span></td><td><span class="tag tag-warning">MEDIUM</span></td><td>Could add editing, but not tool builders</td></tr>
+                        <tr class="row-highlight">
+                            <td><strong>Craftit AI</strong></td>
+                            <td class="text-success font-bold">✓ Yes</td>
+                            <td class="text-success font-bold">✓ Full</td>
+                            <td class="text-success font-bold">✓ Yes</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>Canva</td>
+                            <td class="text-muted">AI features</td>
+                            <td class="text-success">✓ Full</td>
+                            <td class="text-muted">Manual</td>
+                            <td><span class="tag tag-warning">Medium</span></td>
+                        </tr>
+                        <tr>
+                            <td>Adobe</td>
+                            <td class="text-muted">AI features</td>
+                            <td class="text-success">✓ Full</td>
+                            <td class="text-muted">No</td>
+                            <td><span class="tag tag-warning">Medium</span></td>
+                        </tr>
+                        <tr>
+                            <td>Midjourney</td>
+                            <td class="text-muted">Generator</td>
+                            <td class="text-danger">✗ Fixed</td>
+                            <td class="text-muted">No</td>
+                            <td><span class="tag tag-success">Low</span></td>
+                        </tr>
+                        <tr>
+                            <td>Runway</td>
+                            <td class="text-muted">Generator</td>
+                            <td class="text-muted">Limited</td>
+                            <td class="text-muted">No</td>
+                            <td><span class="tag tag-success">Low</span></td>
+                        </tr>
                     </tbody>
                 </table>
+            </div>
+
+            <div class="subsection">
+                <h3 class="subsection-title">Porter's Five Forces</h3>
+                <div class="force-bar">
+                    <div class="force-label">Threat of New Entrants</div>
+                    <div class="force-track"><div class="force-fill med" style="width: 60%"></div></div>
+                    <div class="force-score">Medium</div>
+                </div>
+                <div class="force-bar">
+                    <div class="force-label">Supplier Power</div>
+                    <div class="force-track"><div class="force-fill med" style="width: 60%"></div></div>
+                    <div class="force-score">Medium</div>
+                </div>
+                <div class="force-bar">
+                    <div class="force-label">Buyer Power</div>
+                    <div class="force-track"><div class="force-fill low" style="width: 40%"></div></div>
+                    <div class="force-score">Low</div>
+                </div>
+                <div class="force-bar">
+                    <div class="force-label">Threat of Substitutes</div>
+                    <div class="force-track"><div class="force-fill low" style="width: 40%"></div></div>
+                    <div class="force-score">Low</div>
+                </div>
+                <div class="force-bar">
+                    <div class="force-label">Competitive Rivalry</div>
+                    <div class="force-track"><div class="force-fill low" style="width: 40%"></div></div>
+                    <div class="force-score">Low</div>
+                </div>
+                <p class="text-center text-sm text-muted mt-2">Overall Industry Attractiveness: <strong class="text-success">High</strong> — New category with limited direct competition</p>
             </div>
         </div>
 
-        <!-- Porter's Five Forces -->
-        <div class="section" id="porter">
-            <div class="section-header">
-                <div class="section-num">Section 2</div>
-                <h2 class="section-title">Recalibrated Porter's Five Forces</h2>
-                <p class="section-sub">The AI Creative Agent industry is dramatically more attractive</p>
-            </div>
-
-            <div class="grid-2 mb-2">
-                <div class="card">
-                    <div class="card-title">Old Analysis (Tools Market)</div>
-                    <div class="force-bar"><div class="force-label">New Entrants</div><div class="force-track"><div class="force-fill high" style="width:80%"></div></div><div class="force-score">4/5</div></div>
-                    <div class="force-bar"><div class="force-label">Supplier Power</div><div class="force-track"><div class="force-fill high" style="width:80%"></div></div><div class="force-score">4/5</div></div>
-                    <div class="force-bar"><div class="force-label">Buyer Power</div><div class="force-track"><div class="force-fill high" style="width:80%"></div></div><div class="force-score">4/5</div></div>
-                    <div class="force-bar"><div class="force-label">Substitutes</div><div class="force-track"><div class="force-fill med" style="width:60%"></div></div><div class="force-score">3/5</div></div>
-                    <div class="force-bar"><div class="force-label">Rivalry</div><div class="force-track"><div class="force-fill high" style="width:100%"></div></div><div class="force-score">5/5</div></div>
-                    <p class="text-center mt-1"><strong>Overall: 4.0/5</strong> <span class="tag tag-danger">Low Attractiveness</span></p>
-                </div>
-                <div class="card">
-                    <div class="card-title">New Analysis (Agent Market)</div>
-                    <div class="force-bar"><div class="force-label">New Entrants</div><div class="force-track"><div class="force-fill med" style="width:60%"></div></div><div class="force-score text-success">3/5 ↓</div></div>
-                    <div class="force-bar"><div class="force-label">Supplier Power</div><div class="force-track"><div class="force-fill med" style="width:60%"></div></div><div class="force-score text-success">3/5 ↓</div></div>
-                    <div class="force-bar"><div class="force-label">Buyer Power</div><div class="force-track"><div class="force-fill low" style="width:40%"></div></div><div class="force-score text-success">2/5 ↓</div></div>
-                    <div class="force-bar"><div class="force-label">Substitutes</div><div class="force-track"><div class="force-fill low" style="width:40%"></div></div><div class="force-score text-success">2/5 ↓</div></div>
-                    <div class="force-bar"><div class="force-label">Rivalry</div><div class="force-track"><div class="force-fill low" style="width:40%"></div></div><div class="force-score text-success">2/5 ↓</div></div>
-                    <p class="text-center mt-1"><strong>Overall: 2.4/5</strong> <span class="tag tag-success">High Attractiveness</span></p>
-                </div>
-            </div>
-
-            <div class="subsection">
-                <h3 class="subsection-title">Why Forces Changed</h3>
-                <table>
-                    <thead><tr><th>Force</th><th>Old → New</th><th>Reasoning</th></tr></thead>
-                    <tbody>
-                        <tr><td><strong>New Entrants</strong></td><td>4 → 3</td><td>Need AI + tools + editability = more complex to build</td></tr>
-                        <tr><td><strong>Supplier Power</strong></td><td>4 → 3</td><td>Agent layer abstracts underlying AI models; can swap them</td></tr>
-                        <tr><td><strong>Buyer Power</strong></td><td>4 → 2</td><td>AI learns brand/preferences = massive switching costs</td></tr>
-                        <tr><td><strong>Substitutes</strong></td><td>3 → 2</td><td>Agent eliminates tool struggle; unique value</td></tr>
-                        <tr><td><strong>Rivalry</strong></td><td>5 → 2</td><td>No direct competitors in AI Creative Agent category</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <!-- Competitor Analysis -->
-        <div class="section" id="competitors">
-            <div class="section-header">
-                <div class="section-num">Section 3</div>
-                <h2 class="section-title">Recalibrated Competitor Analysis</h2>
-                <p class="section-sub">Different battle, different strategy</p>
-            </div>
-
-            <div class="subsection">
-                <h3 class="subsection-title"><span>3.1</span> Canva - Now a Different Battle</h3>
-                <table>
-                    <thead><tr><th>Dimension</th><th>Canva</th><th>Craftit AI Agent</th></tr></thead>
-                    <tbody>
-                        <tr><td><strong>Core DNA</strong></td><td>Templates & Tools</td><td class="text-accent font-bold">AI Creative Partner</td></tr>
-                        <tr><td><strong>AI Philosophy</strong></td><td>"AI helps you use our tools"</td><td class="text-accent font-bold">"AI uses tools for you"</td></tr>
-                        <tr><td><strong>Output</strong></td><td>User creates with AI assistance</td><td class="text-accent font-bold">AI creates with user guidance</td></tr>
-                        <tr><td><strong>Brand Learning</strong></td><td>Brand Kit (manual setup)</td><td class="text-accent font-bold">AI learns from your work</td></tr>
-                        <tr><td><strong>Tool Struggle</strong></td><td>Reduced but exists</td><td class="text-accent font-bold">Eliminated</td></tr>
-                    </tbody>
-                </table>
-                <div class="card mt-2">
-                    <div class="card-title">Counter-Strategy vs Canva</div>
-                    <ul class="text-sm" style="list-style: none;">
-                        <li>🎯 <strong>Message:</strong> "Stop using tools. Start having a creative partner."</li>
-                        <li>🎯 <strong>Positioning:</strong> "Canva makes you a better designer. Craftit IS your designer."</li>
-                        <li>🎯 <strong>Anti-Canva:</strong> Target frustrated users with "You shouldn't have to be a designer"</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="subsection">
-                <h3 class="subsection-title"><span>3.2</span> New Competitor Matrix</h3>
-                <table>
-                    <thead><tr><th>Competitor</th><th>AI Agent</th><th>Tools Layer</th><th>Editability</th><th>Brand Learning</th><th>Threat</th></tr></thead>
-                    <tbody>
-                        <tr class="highlight-row"><td><strong>Craftit AI</strong></td><td class="yes">✓ YES</td><td class="yes">✓ YES</td><td class="yes">✓ YES</td><td class="yes">✓ YES</td><td>N/A</td></tr>
-                        <tr><td>Canva</td><td class="no">✗ Features</td><td class="yes">✓ YES</td><td class="yes">✓ YES</td><td>Manual</td><td><span class="tag tag-warning">MED</span></td></tr>
-                        <tr><td>Adobe</td><td class="no">✗ Features</td><td class="yes">✓ YES</td><td class="yes">✓ YES</td><td class="no">✗ NO</td><td><span class="tag tag-warning">MED</span></td></tr>
-                        <tr><td>Midjourney</td><td class="no">✗ Generator</td><td class="no">✗ NO</td><td class="no">✗ NO</td><td class="no">✗ NO</td><td><span class="tag tag-success">LOW</span></td></tr>
-                        <tr><td>Runway</td><td class="no">✗ Generator</td><td>Some</td><td>Limited</td><td class="no">✗ NO</td><td><span class="tag tag-success">LOW</span></td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <!-- Market Sizing -->
-        <div class="section" id="market">
-            <div class="section-header">
-                <div class="section-num">Section 4</div>
-                <h2 class="section-title">Recalibrated TAM/SAM/SOM</h2>
-                <p class="section-sub">The market expands dramatically with the agent model</p>
-            </div>
-
-            <div class="insight-box">
-                <div class="insight-label">Market Expansion</div>
-                <div class="insight-text">Old: "People who use creative tools"<br><strong style="color: var(--accent);">New: "Everyone who needs creative content"</strong></div>
-            </div>
-
-            <div class="subsection">
-                <h3 class="subsection-title">Recalibrated SAM</h3>
-                <table>
-                    <thead><tr><th>Segment</th><th>Old SAM</th><th>New SAM</th><th>Why Higher</th></tr></thead>
-                    <tbody>
-                        <tr><td>All-in-one creators</td><td>$1.5B</td><td><strong>$3B</strong></td><td>Agent converts non-creators</td></tr>
-                        <tr><td>SEA market</td><td>$0.5B</td><td><strong>$1B</strong></td><td>Larger penetration possible</td></tr>
-                        <tr><td>SMB/Agencies</td><td>$0.8B</td><td><strong>$2B</strong></td><td>Replace agency spend</td></tr>
-                        <tr><td>E-commerce</td><td>$1.0B</td><td><strong>$2B</strong></td><td>Higher value per user</td></tr>
-                        <tr class="highlight-row"><td><strong>Non-designers needing design</strong></td><td>N/A</td><td><strong>$5B</strong></td><td>NEW: Tool-phobic users unlocked</td></tr>
-                        <tr><td><strong>Total SAM</strong></td><td>$3.0B</td><td><strong>$13B</strong></td><td><strong>4.3x expansion</strong></td></tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="subsection">
-                <h3 class="subsection-title">Recalibrated Unit Economics</h3>
-                <table>
-                    <thead><tr><th>Metric</th><th>Old (Tool)</th><th>New (Agent)</th><th>Why</th></tr></thead>
-                    <tbody>
-                        <tr><td>Free-to-Paid Conversion</td><td>8%</td><td><strong class="text-success">15%</strong></td><td>Agent value more obvious</td></tr>
-                        <tr><td>Monthly ARPU</td><td>$10</td><td><strong class="text-success">$20-30</strong></td><td>Worth more than a tool</td></tr>
-                        <tr><td>Annual Retention</td><td>40%</td><td><strong class="text-success">70%</strong></td><td>AI learns = switching cost</td></tr>
-                        <tr><td>LTV</td><td>$150</td><td><strong class="text-success">$400</strong></td><td>Higher ARPU × retention</td></tr>
-                        <tr><td>CAC Payback</td><td>8 months</td><td><strong class="text-success">4 months</strong></td><td>Better unit economics</td></tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="card">
-                <div class="card-title">💰 Value Comparison</div>
-                <div class="arch-diagram">ALTERNATIVES TO CRAFTIT AI AGENT:
-
-Option A: Hire a freelance designer
-  → $50-100/hour × 10 hrs/month = $500-1000/month
-
-Option B: Use multiple tools yourself
-  → Canva ($13) + CapCut ($8) + Midjourney ($10) + YOUR TIME (20 hrs)
-  → $31/month + opportunity cost of your time
-
-Option C: Craftit AI Agent
-  → $39.99/month
-  → 30 seconds to describe → 2 minutes to tweak
-
-SAVINGS: $460+ per month OR 20+ hours of your time</div>
-            </div>
-        </div>
-
-        <!-- Moat Assessment -->
-        <div class="section" id="moat">
-            <div class="section-header">
-                <div class="section-num">Section 5</div>
-                <h2 class="section-title">Recalibrated Moat Assessment</h2>
-                <p class="section-sub">The moat transforms from Narrow to Wide</p>
-            </div>
-
-            <div class="grid-2">
-                <div class="card">
-                    <div class="card-title text-danger">Old Moat (Tools)</div>
-                    <div class="moat-score">
-                        <div class="moat-value">2.9</div>
-                        <div class="moat-label">/10 — Narrow (Vulnerable)</div>
-                    </div>
-                    <div class="force-bar"><div class="force-label">Network Effects</div><div class="force-track"><div class="force-fill low" style="width:20%"></div></div><div class="force-score">2/10</div></div>
-                    <div class="force-bar"><div class="force-label">Switching Costs</div><div class="force-track"><div class="force-fill low" style="width:30%"></div></div><div class="force-score">3/10</div></div>
-                    <div class="force-bar"><div class="force-label">Cost Advantages</div><div class="force-track"><div class="force-fill med" style="width:40%"></div></div><div class="force-score">4/10</div></div>
-                    <div class="force-bar"><div class="force-label">Intangibles</div><div class="force-track"><div class="force-fill low" style="width:30%"></div></div><div class="force-score">3/10</div></div>
-                </div>
-                <div class="card" style="border: 2px solid var(--success);">
-                    <div class="card-title text-success">New Moat (Agent)</div>
-                    <div class="moat-score">
-                        <div class="moat-value" style="color: var(--success);">7.3</div>
-                        <div class="moat-label">/10 — Wide (Strong)</div>
-                    </div>
-                    <div class="force-bar"><div class="force-label">Data Network Effects</div><div class="force-track"><div class="force-fill low" style="width:80%"></div></div><div class="force-score text-success">8/10 ↑</div></div>
-                    <div class="force-bar"><div class="force-label">Switching Costs</div><div class="force-track"><div class="force-fill low" style="width:90%"></div></div><div class="force-score text-success">9/10 ↑</div></div>
-                    <div class="force-bar"><div class="force-label">Cost Advantages</div><div class="force-track"><div class="force-fill med" style="width:50%"></div></div><div class="force-score text-success">5/10 ↑</div></div>
-                    <div class="force-bar"><div class="force-label">Intangibles</div><div class="force-track"><div class="force-fill low" style="width:70%"></div></div><div class="force-score text-success">7/10 ↑</div></div>
-                </div>
-            </div>
-
-            <div class="subsection">
-                <h3 class="subsection-title">Why the Moat Deepens Over Time</h3>
-                <table>
-                    <thead><tr><th>Moat Driver</th><th>How It Builds</th></tr></thead>
-                    <tbody>
-                        <tr><td><strong>Data Network Effects</strong></td><td>Every interaction teaches AI about user; brand understanding deepens; competitors start fresh</td></tr>
-                        <tr><td><strong>Switching Costs</strong></td><td>AI knows your brand, style, history; switching = re-training new AI; design memory lives in Craftit</td></tr>
-                        <tr><td><strong>First-Mover</strong></td><td>Define "AI Creative Agent" category; brand association; user trust and relationships</td></tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="insight-box">
-                <div class="insight-label">The Moat Flywheel</div>
-                <div class="insight-text">More users → AI learns more → Better outputs → Higher retention → More users</div>
-            </div>
-        </div>
-
-        <!-- Scenarios -->
-        <div class="section" id="scenarios">
-            <div class="section-header">
-                <div class="section-num">Section 6</div>
-                <h2 class="section-title">Recalibrated Scenario Planning</h2>
-                <p class="section-sub">Different scenarios with the agent model</p>
-            </div>
-
-            <div class="scenario-grid">
-                <div class="scenario-card good">
-                    <div class="scenario-prob" style="background: rgba(16,185,129,0.2); color: var(--success);">35% ★ TARGET</div>
-                    <div class="scenario-title">🏆 B: Category King</div>
-                    <div class="scenario-desc">AI Creative Agents win. Craftit is first and best. We define the category.</div>
-                    <p class="text-xs mt-1"><strong>Exit: $1B+</strong></p>
-                </div>
-                <div class="scenario-card mod">
-                    <div class="scenario-prob">25%</div>
-                    <div class="scenario-title">⚔️ A: Agent Dominance</div>
-                    <div class="scenario-desc">Agents win but competition emerges. First-mover matters but not decisive.</div>
-                    <p class="text-xs mt-1"><strong>Exit: $300-500M</strong></p>
-                </div>
-                <div class="scenario-card mod">
-                    <div class="scenario-prob">25%</div>
-                    <div class="scenario-title">🔄 C: Hybrid World</div>
-                    <div class="scenario-desc">Tools stay dominant, agents become features. Acquisition by Canva/Adobe.</div>
-                    <p class="text-xs mt-1"><strong>Exit: $50-100M</strong></p>
-                </div>
-                <div class="scenario-card bad">
-                    <div class="scenario-prob">15%</div>
-                    <div class="scenario-title">📉 D: Agent Underperforms</div>
-                    <div class="scenario-desc">Agents don't deliver value. Market stays with tools. Pivot or exit.</div>
-                    <p class="text-xs mt-1"><strong>Exit: &lt;$50M</strong></p>
-                </div>
-            </div>
-
-            <div class="card mt-2">
-                <div class="card-title">🎯 Master Strategy</div>
-                <div class="arch-diagram">"All-in on agents. First to prove the model wins."
-
-Resource Allocation:
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-60% → Agent intelligence development
-      (Brand learning, preference understanding, design expertise)
-
-25% → Tool layer excellence
-      (Canvas, timeline, editing capabilities)
-
-10% → Growth and market education
-      (Teach the world what an AI Creative Agent is)
-
-5%  → Hedge for Scenario C/D
-      (API, white-label, acquisition readiness)</div>
-            </div>
-        </div>
-
-        <!-- Strategic Recommendations -->
+        <!-- Section 4: Strategy -->
         <div class="section" id="strategy">
             <div class="section-header">
-                <div class="section-num">Summary</div>
-                <h2 class="section-title">Strategic Recommendations</h2>
-                <p class="section-sub">How everything changes with the agent model</p>
+                <div class="section-num">04</div>
+                <h2 class="section-title">Go-to-Market Strategy</h2>
+                <p class="section-sub">How we win in the market</p>
             </div>
 
-            <div class="metric-grid">
-                <div class="metric-card">
-                    <div class="metric-label">Competition</div>
-                    <div class="metric-value">0</div>
-                    <div class="text-xs text-success">No direct agents</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-label">Moat Score</div>
-                    <div class="metric-value">7.3</div>
-                    <div class="text-xs text-success">+4.4 from tools</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-label">SAM</div>
-                    <div class="metric-value">$13B</div>
-                    <div class="text-xs text-success">4.3x expansion</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-label">LTV</div>
-                    <div class="metric-value">$400</div>
-                    <div class="text-xs text-success">2.7x higher</div>
+            <div class="subsection">
+                <h3 class="subsection-title">Strategic Priorities</h3>
+                <div class="grid-3">
+                    <div class="card">
+                        <div class="card-title">1. Prove the Magic</div>
+                        <p class="text-sm text-muted">Perfect the "describe → create → edit" loop. Users must feel the agent understands them.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">2. Build Brand Memory</div>
+                        <p class="text-sm text-muted">AI that learns user preferences and style. This creates our primary moat.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">3. Own SEA First</div>
+                        <p class="text-sm text-muted">Dominate Southeast Asia before global expansion. Singapore HQ advantage.</p>
+                    </div>
                 </div>
             </div>
 
             <div class="subsection">
-                <h3 class="subsection-title">Priority Actions</h3>
+                <h3 class="subsection-title">Target Segments (Prioritized)</h3>
                 <table>
-                    <thead><tr><th>Phase</th><th>Focus</th><th>Outcome</th></tr></thead>
+                    <thead>
+                        <tr>
+                            <th>Priority</th>
+                            <th>Segment</th>
+                            <th>Value Proposition</th>
+                            <th>Win Rate</th>
+                        </tr>
+                    </thead>
                     <tbody>
-                        <tr><td><strong>Months 1-3</strong></td><td>Prove the Agent Model</td><td>Users feel the "magic" of AI understanding them</td></tr>
-                        <tr><td><strong>Months 4-6</strong></td><td>Nail the Experience</td><td>Conversational creation + editing granularity</td></tr>
-                        <tr><td><strong>Months 7-12</strong></td><td>Scale in SEA</td><td>First AI Creative Agent in Indonesia/Vietnam</td></tr>
-                        <tr><td><strong>Months 10-18</strong></td><td>Category Definition</td><td>Own "AI Creative Agent" category globally</td></tr>
+                        <tr>
+                            <td><span class="tag tag-danger">P1</span></td>
+                            <td><strong>Non-Designers</strong></td>
+                            <td>"Finally, you don't have to be a designer"</td>
+                            <td>60%</td>
+                        </tr>
+                        <tr>
+                            <td><span class="tag tag-danger">P1</span></td>
+                            <td><strong>Frustrated Tool Users</strong></td>
+                            <td>"Stop struggling with tools"</td>
+                            <td>50%</td>
+                        </tr>
+                        <tr>
+                            <td><span class="tag tag-warning">P2</span></td>
+                            <td><strong>Small Businesses</strong></td>
+                            <td>"Your own design team for $40/mo"</td>
+                            <td>55%</td>
+                        </tr>
+                        <tr>
+                            <td><span class="tag tag-warning">P2</span></td>
+                            <td><strong>Content Creators</strong></td>
+                            <td>"Your AI creative partner"</td>
+                            <td>75%</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
 
             <div class="subsection">
-                <h3 class="subsection-title">The Positioning Statement</h3>
-                <div class="quote-box" style="background: var(--accent-light); border-color: var(--accent);">
-                    <p><strong>For</strong> content creators and businesses who need design but hate the tool struggle,</p>
-                    <p><strong>Craftit AI</strong> is the first AI Creative Agent</p>
-                    <p><strong>That</strong> understands your brand and creates editable content from simple descriptions,</p>
-                    <p><strong>Unlike</strong> design tools (Canva, Adobe) that require you to learn them, or AI generators (Midjourney, Runway) that produce fixed outputs,</p>
-                    <p><strong>Craftit AI</strong> acts as your personal designer—learning your preferences, creating what you describe, and letting you perfect every detail.</p>
+                <h3 class="subsection-title">Pricing Strategy</h3>
+                <div class="grid-4">
+                    <div class="card text-center">
+                        <div class="text-xs text-muted mb-1">FREE</div>
+                        <div class="text-primary font-bold" style="font-size: 1.5rem;">$0</div>
+                        <div class="text-xs text-muted mt-1">Limited generations<br>Trial experience</div>
+                    </div>
+                    <div class="card text-center" style="border: 2px solid var(--primary);">
+                        <div class="text-xs text-primary mb-1 font-bold">CREATOR ★</div>
+                        <div class="text-primary font-bold" style="font-size: 1.5rem;">$19.99</div>
+                        <div class="text-xs text-muted mt-1">Full features<br>Brand learning</div>
+                    </div>
+                    <div class="card text-center">
+                        <div class="text-xs text-muted mb-1">PRO</div>
+                        <div class="text-primary font-bold" style="font-size: 1.5rem;">$39.99</div>
+                        <div class="text-xs text-muted mt-1">Power users<br>Priority queue</div>
+                    </div>
+                    <div class="card text-center">
+                        <div class="text-xs text-muted mb-1">TEAM</div>
+                        <div class="text-primary font-bold" style="font-size: 1.5rem;">$29.99</div>
+                        <div class="text-xs text-muted mt-1">Per seat<br>Shared brand</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 5: Moat -->
+        <div class="section" id="moat">
+            <div class="section-header">
+                <div class="section-num">05</div>
+                <h2 class="section-title">Competitive Moat</h2>
+                <p class="section-sub">Defensibility that deepens over time</p>
+            </div>
+
+            <div class="metrics">
+                <div class="metric">
+                    <div class="metric-value">7.3</div>
+                    <div class="metric-label">Moat Score /10</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">Wide</div>
+                    <div class="metric-label">Moat Rating</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">9/10</div>
+                    <div class="metric-label">Switching Costs</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">8/10</div>
+                    <div class="metric-label">Data Network</div>
                 </div>
             </div>
 
-            <div class="insight-box">
-                <div class="insight-label">The Bottom Line</div>
-                <div class="insight-text">Craftit AI is not competing with 1,000 tools on features.<br><strong>It's creating a new category where it's the only player.</strong></div>
+            <div class="subsection">
+                <h3 class="subsection-title">Moat Components</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Moat Type</th>
+                            <th>Score</th>
+                            <th>How It Works</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Data Network Effects</strong></td>
+                            <td><span class="tag tag-success">8/10</span></td>
+                            <td>Every interaction teaches AI about user. More use = more personalized = more valuable.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Switching Costs</strong></td>
+                            <td><span class="tag tag-success">9/10</span></td>
+                            <td>AI knows your brand, style, history. Switching means re-training a new AI from scratch.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>First-Mover</strong></td>
+                            <td><span class="tag tag-primary">7/10</span></td>
+                            <td>Define "AI Creative Agent" category. Brand association. User trust.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cost Advantages</strong></td>
+                            <td><span class="tag tag-warning">5/10</span></td>
+                            <td>Commodity AI models underneath. Value in agent layer. Scale economics.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="highlight center">
+                <div class="highlight-label">The Moat Flywheel</div>
+                <div class="highlight-text">More users → AI learns more → Better outputs<br>→ Higher retention → More users</div>
+            </div>
+        </div>
+
+        <!-- Section 6: Financials -->
+        <div class="section" id="financials">
+            <div class="section-header">
+                <div class="section-num">06</div>
+                <h2 class="section-title">Financial Projections</h2>
+                <p class="section-sub">Path to $500M ARR by 2030</p>
+            </div>
+
+            <div class="subsection">
+                <h3 class="subsection-title">5-Year Revenue Projection</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Year</th>
+                            <th>Users</th>
+                            <th>Paid Users</th>
+                            <th>ARPU</th>
+                            <th>ARR</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2026 (Y1)</td>
+                            <td>100K</td>
+                            <td>15K</td>
+                            <td>$20</td>
+                            <td><strong>$3.6M</strong></td>
+                        </tr>
+                        <tr>
+                            <td>2027 (Y2)</td>
+                            <td>500K</td>
+                            <td>75K</td>
+                            <td>$22</td>
+                            <td><strong>$20M</strong></td>
+                        </tr>
+                        <tr>
+                            <td>2028 (Y3)</td>
+                            <td>2M</td>
+                            <td>300K</td>
+                            <td>$25</td>
+                            <td><strong>$90M</strong></td>
+                        </tr>
+                        <tr>
+                            <td>2029 (Y4)</td>
+                            <td>8M</td>
+                            <td>1.2M</td>
+                            <td>$28</td>
+                            <td><strong>$250M</strong></td>
+                        </tr>
+                        <tr class="row-highlight">
+                            <td><strong>2030 (Y5)</strong></td>
+                            <td><strong>20M</strong></td>
+                            <td><strong>3M</strong></td>
+                            <td><strong>$30</strong></td>
+                            <td><strong>$500M</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="subsection">
+                <h3 class="subsection-title">Unit Economics</h3>
+                <div class="grid-4">
+                    <div class="card text-center">
+                        <div class="card-title">15%</div>
+                        <div class="text-xs text-muted">Free → Paid Conversion</div>
+                    </div>
+                    <div class="card text-center">
+                        <div class="card-title">$25</div>
+                        <div class="text-xs text-muted">Average ARPU</div>
+                    </div>
+                    <div class="card text-center">
+                        <div class="card-title">70%</div>
+                        <div class="text-xs text-muted">Annual Retention</div>
+                    </div>
+                    <div class="card text-center">
+                        <div class="card-title">$400</div>
+                        <div class="text-xs text-muted">Customer LTV</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3 class="subsection-title">Funding Requirements</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Round</th>
+                            <th>Timing</th>
+                            <th>Amount</th>
+                            <th>Use of Funds</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Pre-Seed</td>
+                            <td>Now</td>
+                            <td>$500K</td>
+                            <td>Product, team, SEA launch</td>
+                        </tr>
+                        <tr>
+                            <td>Seed</td>
+                            <td>Month 9</td>
+                            <td>$2-3M</td>
+                            <td>Scale Indonesia, Vietnam</td>
+                        </tr>
+                        <tr>
+                            <td>Series A</td>
+                            <td>Month 18</td>
+                            <td>$10-15M</td>
+                            <td>Global expansion, enterprise</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Section 7: Roadmap -->
+        <div class="section" id="roadmap">
+            <div class="section-header">
+                <div class="section-num">07</div>
+                <h2 class="section-title">Execution Roadmap</h2>
+                <p class="section-sub">How we get there</p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-phase">Phase 1 • Months 1-3</div>
+                    <div class="timeline-title">Prove the Magic</div>
+                    <div class="timeline-desc">Perfect the agent experience. Users feel AI understands them. 10K users validate NPS > 70.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-phase">Phase 2 • Months 4-6</div>
+                    <div class="timeline-title">Nail the Experience</div>
+                    <div class="timeline-desc">Conversational improvements. Editing granularity. Speed optimization. Multi-format support.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-phase">Phase 3 • Months 7-12</div>
+                    <div class="timeline-title">Scale in SEA</div>
+                    <div class="timeline-desc">Launch Indonesia and Vietnam. Local language support. 100K users. Category leadership.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-phase">Phase 4 • Months 13-24</div>
+                    <div class="timeline-title">Global Expansion</div>
+                    <div class="timeline-desc">Series A. US and Europe launch. Enterprise tier. Define "AI Creative Agent" globally.</div>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3 class="subsection-title">Risk Scenarios</h3>
+                <div class="scenario-grid">
+                    <div class="scenario primary">
+                        <div class="scenario-prob" style="background: rgba(16,185,129,0.2); color: var(--success);">35%</div>
+                        <div class="scenario-title">🏆 Category King</div>
+                        <div class="scenario-desc">AI Creative Agents win. Craftit defines and dominates the category. Exit: $1B+</div>
+                    </div>
+                    <div class="scenario secondary">
+                        <div class="scenario-prob">25%</div>
+                        <div class="scenario-title">⚔️ Competitive Market</div>
+                        <div class="scenario-desc">Agents win but competition emerges. First-mover advantage matters. Exit: $300-500M</div>
+                    </div>
+                    <div class="scenario tertiary">
+                        <div class="scenario-prob">25%</div>
+                        <div class="scenario-title">🔄 Hybrid World</div>
+                        <div class="scenario-desc">Tools remain dominant, agents become features. Acquisition by Canva/Adobe. Exit: $50-100M</div>
+                    </div>
+                    <div class="scenario risk">
+                        <div class="scenario-prob">15%</div>
+                        <div class="scenario-title">📉 Agents Underperform</div>
+                        <div class="scenario-desc">Agent paradigm doesn't deliver expected value. Pivot or early exit required.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-num">Summary</div>
+                <h2 class="section-title">Investment Thesis</h2>
+            </div>
+
+            <div class="highlight center">
+                <div class="highlight-label">The Opportunity</div>
+                <div class="highlight-text" style="font-size: 1.1rem;">Craftit AI is creating a new category—AI Creative Agent—where we're the only player. With a $13B SAM, strong moat from brand learning, and 60% target scenario success rate, we're positioned to build a $500M+ company.</div>
+            </div>
+
+            <div class="grid-3 mt-2">
+                <div class="card text-center">
+                    <div class="text-primary font-bold" style="font-size: 2rem;">$13B</div>
+                    <div class="text-sm text-muted">Serviceable Market</div>
+                </div>
+                <div class="card text-center">
+                    <div class="text-primary font-bold" style="font-size: 2rem;">7.3/10</div>
+                    <div class="text-sm text-muted">Moat Score (Wide)</div>
+                </div>
+                <div class="card text-center">
+                    <div class="text-primary font-bold" style="font-size: 2rem;">$500M</div>
+                    <div class="text-sm text-muted">Y5 ARR Target</div>
+                </div>
+            </div>
+
+            <div class="quote mt-2">
+                <strong>For</strong> content creators and businesses who need design but hate the tool struggle,<br><br>
+                <strong>Craftit AI</strong> is the first AI Creative Agent<br><br>
+                <strong>That</strong> understands your brand and creates editable content from simple descriptions,<br><br>
+                <strong>Unlike</strong> design tools that require learning or AI generators that produce fixed outputs,<br><br>
+                <strong>Craftit AI</strong> acts as your personal designer—learning your preferences, creating what you describe, and letting you perfect every detail.
             </div>
         </div>
     </div>
 
     <footer>
-        <div class="logo">Craftit AI Strategy</div>
-        <p>Recalibrated Analysis • February 2026 • Agent-First Paradigm</p>
-        <p class="mt-1" style="font-style: italic;">"The best creative tool is one you don't have to learn. The best AI is one that learns you."</p>
+        <div class="logo">Craftit AI</div>
+        <p>Strategic Plan 2026-2030 • Confidential</p>
+        <p class="mt-1">Singapore • craftit.ai</p>
     </footer>
 
     <script>
         window.addEventListener('scroll', () => {
             const h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            document.getElementById('progressBar').style.width = (document.documentElement.scrollTop / h * 100) + '%';
+            document.getElementById('progress').style.width = (document.documentElement.scrollTop / h * 100) + '%';
         });
     </script>
 </body>
